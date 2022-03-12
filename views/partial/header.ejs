@@ -1,80 +1,82 @@
 <header class="header-content">
-    <div class="main-header-top">
-      <div class="truck">
-        <i class="fas fa-truck"></i>
-        <h2>Envios Gratis</h2>
-      </div>
-      <h2>Para Compras Mayores a $10000</h2>
+  <div class="main-header-top">
+    <div class="truck">
+      <i class="fas fa-truck"></i>
+      <h2>Envios Gratis</h2>
     </div>
+    <h2>Para Compras Mayores a $10000</h2>
+  </div>
 
-    <div class="main-header">
-      <div class="main-header-top-bar">
-        <span><a class="inicio" href="/user/login">ACCEDER</a></span>
-        <div class="nav">
-          <input class="check" type="checkbox" id="check">
-         
-            <label for="check" class="bar-btn">
-            <i class="fas fa-bars"></i>
-          </label>
-          <ul class="nav-menu">
-           <li><a  href="/user/login">ACCEDER</a></li> 
-            <li><a href="/product/category/Hombre">HOMBRES</a></li>
-            <li><a href="/product/category/Mujer"> MUJERES</a></li>
-          <li><a  href="/product/productList">TODOS LOS PRODUCTOS</a></li>
+  <div class="main-header">
+    <div class="main-header-top-bar">
+      <span><a class="inicio" href="/user/login">ACCEDER</a></span>
+      <div class="nav">
+        <input class="check" type="checkbox" id="check" />
+
+        <label for="check" class="bar-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <ul class="nav-menu">
+          <li><a href="/user/login">ACCEDER</a></li>
+          <li><a href="/product/category/Hombre">HOMBRES</a></li>
+          <li><a href="/product/category/Mujer"> MUJERES</a></li>
+          <li><a href="/product/productList">TODOS LOS PRODUCTOS</a></li>
           <li><a href="/product/sale/on"> OFERTAS</a></li>
-          <% if(locals && locals.loggedUser){ %>
-            <% if ( locals.loggedUser.role_id == 1 ) { %>
+          <% if(locals && locals.loggedUser){ %> <% if (
+          locals.loggedUser.role_id == 1 ) { %>
           <li><a href="/product/createProduct">CREAR PRODUCTO</a></li>
           <% } %>
-            
-            <li><a href="/user/profile">HI <%= locals.loggedUser.name %>  </a></li>
-            <li><a href="/user/logout">LOGOUT</a></li>
-         <% } %> 
-         
-          </ul>  
+
+          <li><a href="/user/profile">HI <%= locals.loggedUser.name %> </a></li>
+          <li><a href="/user/logout">LOGOUT</a></li>
+          <% } %>
+        </ul>
+      </div>
+      <a href="/">
+        <div class="apolo-logo">
+          <img src="/img/logo_small-pelota.png" class="logo" />
         </div>
-        <a href="/">
-          <div class="apolo-logo">
-            <img src="/img/logo_small-pelota.png" class="logo">
+      </a>
+      <div class="box-3">
+        <form action="/product/search" method="POST" class="create-form">
+          <div class="barra">
+            <input
+              type="text"
+              name="searching"
+              placeholder="Que estas buscando?"
+              class="search-bar-bar"
+            />
+            <button type="submit" class="botton-form-login">
+              <i class="fas fa-search"></i>
+            </button>
           </div>
-        </a>
-        <div class="box-3">
-          <form action="/product/search" method="POST" class="create-form">
-            <div class="barra">
-              <input type="text" name="searching" placeholder="Que estas buscando?" class="search-bar-bar">
-              <button type="submit" class="botton-form-login"><i class="fas fa-search"></i></button>
+        </form>
+        <div class="main-buy">
+          <a href="/product/productCart">
+            <div>
+              <i class="fas fa-cart-arrow-down carrito"></i>
             </div>
-          </form>
-          <div class="main-buy">
-            <a href="/product/productCart">
-              <div>
-                <i class="fas fa-cart-arrow-down carrito"></i>
-              </div>
-            </a>
-          </div>
+          </a>
         </div>
       </div>
-
-
-      <nav class="main-navbar">
-        <!--aca en esta fila genero una barra de vavegacion-->
-        <ul class="navbar">
-          <li><a href="/product/category/Hombre">HOMBRES</a></li>
-          <li><a href="/product/category/Mujer">MUJERES</a></li>
-          <li><a href="/product/productList">TODOS LOS PRODUCTOS</a></li>
-          <li><a href="/product/sale/on">OFERTAS</a></li>
-          <% if(locals && locals.loggedUser){ %> <!--Si tengo a alguien es session que recien ahi me muestre el perfil y el logout-->
-            <% if ( locals.loggedUser.role_id == 1 ) { %>
-              <li><a href="/product/createProduct">CREAR PRODUCTO</a></li>
-            <% } %>
-           
-            <li><a href="/user/profile">HI <%= locals.loggedUser.name %>  </a></li>
-         <li><a href="/user/logout">LOGOUT</a></li>
-        
-         <% } %> 
-        </ul>
-
-      </nav>
     </div>
 
-  </header>
+    <nav class="main-navbar">
+      <ul class="navbar">
+        <li><a href="/product/category/Hombre">HOMBRES</a></li>
+        <li><a href="/product/category/Mujer">MUJERES</a></li>
+        <li><a href="/product/productList">TODOS LOS PRODUCTOS</a></li>
+        <li><a href="/product/sale/on">OFERTAS</a></li>
+        <% if(locals && locals.loggedUser){ %> <% if ( locals.loggedUser.role_id
+        == 1 ) { %>
+        <li><a href="/product/createProduct">CREAR PRODUCTO</a></li>
+        <% } %>
+
+        <li><a href="/user/profile">HI <%= locals.loggedUser.name %> </a></li>
+        <li><a href="/user/logout">LOGOUT</a></li>
+
+        <% } %>
+      </ul>
+    </nav>
+  </div>
+</header>

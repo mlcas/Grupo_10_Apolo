@@ -1,117 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Apolo</title>
-        <script src="https://kit.fontawesome.com/98eaad93ae.js" crossorigin="anonymous"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/normalize.css">
-        <%- include("../partial/head.ejs",{cssfile:"register"}) %> <!--cssfile es una variable que va a guardar la hoja de estilo-->
-    </head>
-<body>
-  <%- include("../partial/header.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apolo</title>
+    <script
+      src="https://kit.fontawesome.com/98eaad93ae.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <%- include("../partial/head.ejs",{cssfile:"register"}) %>
+  </head>
+  <body>
+    <%- include("../partial/header.ejs") %>
     <main>
-        <section class="box-form-register">
-           
-            <form action="/user/register" method="POST" class="form-register" enctype="multipart/form-data">
-                <div class="form-name">
-                    <input type="text" name="name" placeholder="Nombre" class ="name"
-                    class="form-name <%= locals.errors && errors.name ? "is-invalid": null %>"
-                    value ="<%= locals.oldData ? oldData.name :null %>"> <!--NO ME SALIO-->
-                    <% if (locals.errors && errors.name){ %> 
-                    <div class="text-danger">
-                        <%= errors.name.msg %> 
-                    </div>
-                    <% } %> 
-                    <div id="div-name"> <!--lo utilizamos para vaciar  el contenido de html desde javaScript-->
-
-                    </div>
-                  
-                </div>
-                <div class="form-surname">
-                    <input type="text" name="lastname" placeholder="Apellido" class ="lastName"
-                    class="form-name <%= locals.errors && errors.lastname ? "is-invalid": null %>"
-                    value ="<%= locals.oldData ? oldData.lastname :null %>"> <!--NO ME SALIO-->
-                    <% if (locals.errors && errors.lastname){ %> 
-                    <div class="text-danger">
-                        <%= errors.lastname.msg %> 
-                    </div>
-                    <% } %> 
-                    <div id="div-surname"> <!--lo utilizamos para vaciar  el contenido de html desde javaScript-->
-
-                    </div>
-                   
-                </div>
-                <div class="form-birth">      
-                    <input type="date" name="birthdate" placeholder="Fecha de Nacimiento" class = "date"
-                    class="form-name <%= locals.errors && errors.birthdate ? "is-invalid": null %>"
-                    value ="<%= locals.oldData ? oldData.birthdate :null %>"> <!--NO ME SALIO-->
-                    <% if (locals.errors && errors.birthdate){ %> 
-                    <div class="text-danger">
-                        <%= errors.birthdate.msg %> 
-                    </div>
-                    <% } %> 
-                    <div id="div-Date"> <!--lo utilizamos para vaciar  el contenido de html desde javaScript-->
-
-                    </div>
-                </div>
-                <div class="form-email">
-                    <input type="text" name="email" placeholder="Correo Electrónico" class ="email"
-                    class="form-name <%= locals.errors && errors.email ? "is-invalid": null %>"
-                    value ="<%= locals.oldData ? oldData.email :null %>">
-                    <% if (locals.errors && errors.email){ %> 
-                        <div class="text-danger">
-                            <%= errors.email.msg %> 
-                        </div>
-                        <% } %> 
-                        <div id="div-email"> <!--lo utilizamos para vaciar  el contenido de html desde javaScript-->
-
-                        </div>
-                </div>
-                <div class="form-pass">
-                    <input type="password" name="password" placeholder="Contraseña" class ="pass"
-                    class="form-name <%= locals.errors && errors.password ? "is-invalid": null %>"
-                    value ="<%= locals.oldData ? oldData.password :null %>">
-                    <% if (locals.errors && errors.password){ %> 
-                        <div class="text-danger">
-                            <%= errors.password.msg %> 
-                        </div>
-                        <% } %> 
-                        <div id="div-pass"> <!--lo utilizamos para vaciar  el contenido de html desde javaScript-->
-
-                        </div>
-                </div>
-                <div class="control-formulario">
-                    <label>Foto del Perfil:</label>
-                    <input type="file" name="image" placeholder="IMAGEN" class="control">
-                    <% if (locals.errors && errors.image){ %> 
-                        <div class="text-danger">
-                            <%= errors.image.msg %> 
-                        </div>
-                        <% } %> 
-                        <div id="div-image"> <!--lo utilizamos para vaciar  el contenido de html desde javaScript-->
-
-                        </div>
-                      
-                  </div>
-                <button class="register-button" type="submit">Registrarse</button>
-            </form>
-        </section>
-        <section class="box-benefits">
-            <h2 class="header-benefits">Unite a nosotros y obtené beneficios</h2>
-            <ul class="list-benefits">
-                <li>Recibí un 20% de descuento en tu primer compra</li>
-                <li>Accedé a la venta de productos limitados</li>
-                <li>Sumá puntos y canjealos por descuentos o productos</li>
-                <li>Recibí y enterate de nuestras promociones y ofertas</li>
-            </ul>
-        </section>
+      <section class="box-form-register">
+        <form
+          action="/user/register"
+          method="POST"
+          class="form-register"
+          enctype="multipart/form-data"
+        >
+          <div class="form-name">
+            <input type="text" name="name" placeholder="Nombre" class ="name"
+            class="form-name <%= locals.errors && errors.name ? "is-invalid":
+            null %>" value ="<%= locals.oldData ? oldData.name :null %>"> <% if
+            (locals.errors && errors.name){ %>
+            <div class="text-danger"><%= errors.name.msg %></div>
+            <% } %>
+            <div id="div-name"></div>
+          </div>
+          <div class="form-surname">
+            <input type="text" name="lastname" placeholder="Apellido" class
+            ="lastName" class="form-name <%= locals.errors && errors.lastname ?
+            "is-invalid": null %>" value ="<%= locals.oldData ? oldData.lastname
+            :null %>"> <% if (locals.errors && errors.lastname){ %>
+            <div class="text-danger"><%= errors.lastname.msg %></div>
+            <% } %>
+            <div id="div-surname"></div>
+          </div>
+          <div class="form-birth">
+            <input type="date" name="birthdate" placeholder="Fecha de
+            Nacimiento" class = "date" class="form-name <%= locals.errors &&
+            errors.birthdate ? "is-invalid": null %>" value ="<%= locals.oldData
+            ? oldData.birthdate :null %>"> <% if (locals.errors &&
+            errors.birthdate){ %>
+            <div class="text-danger"><%= errors.birthdate.msg %></div>
+            <% } %>
+            <div id="div-Date"></div>
+          </div>
+          <div class="form-email">
+            <input type="text" name="email" placeholder="Correo Electrónico"
+            class ="email" class="form-name <%= locals.errors && errors.email ?
+            "is-invalid": null %>" value ="<%= locals.oldData ? oldData.email
+            :null %>"> <% if (locals.errors && errors.email){ %>
+            <div class="text-danger"><%= errors.email.msg %></div>
+            <% } %>
+            <div id="div-email"></div>
+          </div>
+          <div class="form-pass">
+            <input type="password" name="password" placeholder="Contraseña"
+            class ="pass" class="form-name <%= locals.errors && errors.password
+            ? "is-invalid": null %>" value ="<%= locals.oldData ?
+            oldData.password :null %>"> <% if (locals.errors &&
+            errors.password){ %>
+            <div class="text-danger"><%= errors.password.msg %></div>
+            <% } %>
+            <div id="div-pass"></div>
+          </div>
+          <div class="control-formulario">
+            <label>Foto del Perfil:</label>
+            <input
+              type="file"
+              name="image"
+              placeholder="IMAGEN"
+              class="control"
+            />
+            <% if (locals.errors && errors.image){ %>
+            <div class="text-danger"><%= errors.image.msg %></div>
+            <% } %>
+            <div id="div-image"></div>
+          </div>
+          <button class="register-button" type="submit">Registrarse</button>
+        </form>
+      </section>
+      <section class="box-benefits">
+        <h2 class="header-benefits">Unite a nosotros y obtené beneficios</h2>
+        <ul class="list-benefits">
+          <li>Recibí un 20% de descuento en tu primer compra</li>
+          <li>Accedé a la venta de productos limitados</li>
+          <li>Sumá puntos y canjealos por descuentos o productos</li>
+          <li>Recibí y enterate de nuestras promociones y ofertas</li>
+        </ul>
+      </section>
     </main>
     <script src="/js/validatorRegister.js"></script>
-    <%- include("../partial/footer.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
-</body>
+    <%- include("../partial/footer.ejs") %>
+  </body>
 </html>

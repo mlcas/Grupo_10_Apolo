@@ -2,15 +2,15 @@
 <html lang="en">
 
 <!--Poner el head-->
-<%- include("partial/head.ejs",{cssfile:"style"}) %> <!--cssfile es una variable que va a guardar la hoja de estilo-->
+<%- include("partial/head.ejs",{cssfile:"style"}) %> 
 <body>
   <!--Poner eh header-->
-  <%- include("partial/header.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+  <%- include("partial/header.ejs") %>
   <main>
     <!-- Empieza la seccion de los articulos-->
     
     <section> 
-      <div class="slider"> <!--Fila 81 a la 109 es para el Slider-->
+      <div class="slider"> 
         <ul id="autoWidth" class="cs-hidden">
           <% sliderInfo.forEach(element => { %>
             <li class="<%= element.class %>"> 
@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div>
-        <img class="img-section" src="/img/temporada.jpg"> <!--Esta queda asi-->
+        <img class="img-section" src="/img/temporada.jpg"> 
       </div>
      <!--Primer seccion-->
       <div class="tablet">
@@ -94,7 +94,7 @@
     </section>
   </main>
   <!--Empieza la parte de Footer-->
-  <%- include("partial/footer.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+  <%- include("partial/footer.ejs") %>
   <script src="js/script.js" type="text/javascript"></script>
 
 </body>

@@ -4,251 +4,247 @@
 #FFFFFF white 
 #25CED1 turqoise */
 
-*{
-    box-sizing: border-box; 
-    margin: 0px;
-    padding: 0px;
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* Header */
-@media (min-width:320px) {
-.header-content{
-    position: sticky;/* aca fijo el header*/
-    top: 0;/* aca le digo al header que quede bien arriba*/
-    width: 100%;/* aca le digo al contenedor que tome todo el ancho disponible*/
-    z-index: 1;/* es para que el header se posicione por adelante de los demas elementos y se visualice al scroolear*/
-}
-.slider{
-    display: flex;/* me acomoda cada imagen del slider en forma horizontal*/
-}
-.slider-img{ /* aca estoy defiendo el alto y ancho del contenedor del slider para que las imagenes tengan el mismo tamaño*/
-   width: 200px;
-   height: 300px;
-}
-.slider-img img{ /* aca las img tomen el 100% del tamaño de su contenedor*/
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.main-header-top{
-    background-color:#25ced1;
+@media (min-width: 320px) {
+  .header-content {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  .slider {
+    display: flex;
+  }
+  .slider-img {
+    width: 200px;
+    height: 300px;
+  }
+  .slider-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .main-header-top {
+    background-color: #25ced1;
     padding-top: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-}
-.main-header-top h2{
+  }
+  .main-header-top h2 {
     font-size: 10px;
     color: white;
     text-align: center;
     display: block;
-    margin-left: 10px;   
-}
-.inicio{
+    margin-left: 10px;
+  }
+  .inicio {
     display: none;
-}
-.botton-form-login {
-    background-color:#25ced1;
+  }
+  .botton-form-login {
+    background-color: #25ced1;
     border: none;
     padding: 5px 10px;
     font-style: oblique;
-    color: #FFFF;
+    color: #ffff;
     border-radius: 5px;
     margin-right: 5px;
-}
-.truck{
+  }
+  .truck {
     font-size: 15px;
     padding-bottom: 3px;
     width: 100%;
     color: green;
     display: flex;
     justify-content: center;
-}
-.main-header{
-    background-color: #EA526F;
-}
-.main-header-top-bar{
+  }
+  .main-header {
+    background-color: #ea526f;
+  }
+  .main-header-top-bar {
     display: flex;
     justify-content: space-between;
-    align-items: center;  
-}
-.box-3{
+    align-items: center;
+  }
+  .box-3 {
     display: flex;
-}
-.search-bar{
+  }
+  .search-bar {
     display: flex;
-}
-.buy{
+  }
+  .buy {
     display: none;
-}
-.logo{
+  }
+  .logo {
     width: 140px;
     animation: aumentar 1s linear 5 alternate;
-}
-.lupa{
+  }
+  .lupa {
     display: block;
     color: #25ced1;
     margin-right: 10px;
     font-size: 20px;
-}
-.carrito{
-    color:#25ced1;
-    font-size: 25px;
-    margin-right: 10px;  
-}
-.navbar li a{
-    transition: all 450ms; /* de esta forma al dar click sobre la barra de navegacion el cambio no se refleja de forma abrupta*/
-
-}
-.navbar li a:hover{ /* con este pseudo selector hago que cuando te posicion sobre los elementos de la barra cambien de color*/
+  }
+  .carrito {
     color: #25ced1;
-}
-.bar-btn{
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  .navbar li a {
+    transition: all 450ms;
+  }
+  .navbar li a:hover {
+    color: #25ced1;
+  }
+  .bar-btn {
     display: block;
     font-size: 30px;
     color: #25ced1;
     margin-left: 0px;
-}
-.nav-menu{
+  }
+  .nav-menu {
     position: fixed;
     height: 0%;
     width: 100%;
     top: 100px;
-    
-    transition: all .5s;
 
-}
-.nav-menu li {
+    transition: all 0.5s;
+  }
+  .nav-menu li {
     display: none;
     line-height: 30px;
     margin: 10px 0;
-    transition: all .5s;
-}
-.nav-menu li a {
-  color: #FFF;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 600;
-  text-decoration: none;
-  background-color:#EA526F;
-
-}
-.text-danger{
+    transition: all 0.5s;
+  }
+  .nav-menu li a {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #ea526f;
+  }
+  .text-danger {
     color: red;
-}
-.nav-menu li a.active, .nav-menu li a:hover{
+  }
+  .nav-menu li a.active,
+  .nav-menu li a:hover {
     color: #25ced1;
-    transition: .3s;
-}
-#check:checked ~ .nav-menu{
+    transition: 0.3s;
+  }
+  #check:checked ~ .nav-menu {
     height: 100vh;
-}
-#check:checked ~ .nav-menu li{
+  }
+  #check:checked ~ .nav-menu li {
     display: block;
-}
-.check{
+  }
+  .check {
     display: none;
-}
+  }
 
-.main-navbar{
-    display: none
-}
-.main-navbar ul{
+  .main-navbar {
+    display: none;
+  }
+  .main-navbar ul {
     list-style: none;
     margin: 0;
     padding: 10px;
     width: 100%;
-}
-.main-navbar a{
+  }
+  .main-navbar a {
     text-decoration: none;
     color: black;
     padding: 5px 0;
-}
+  }
 
-/* Main */
+  /* Main */
 
-body {
-    font-family: 'Roboto', sans-serif;
+  body {
+    font-family: "Roboto", sans-serif;
     height: 100vh;
-}
+  }
 
-.title-login {
-    color:linen ;
+  .title-login {
+    color: linen;
     margin: 10px;
-}
+  }
 
-main {
+  main {
     height: 75%;
-}
+  }
 
-.box-form {
+  .box-form {
     width: 100%;
-    background-color:#25CED1 ;
+    background-color: #25ced1;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
     padding: 10px 0px;
     height: 100%;
-}
+  }
 
-.form-login {
+  .form-login {
     display: flex;
     flex-direction: column;
     height: 150px;
     justify-content: space-between;
     width: 85%;
     max-width: 425px;
-}
+  }
 
-input {
+  input {
     border-radius: 5px;
     border: none;
-}
+  }
 
-.usuario input{
+  .usuario input {
     width: 100%;
-}
+  }
 
-.pass input {
+  .pass input {
     width: 100%;
-}
+  }
 
-
-.usuario label {
+  .usuario label {
     display: block;
     color: linen;
     margin-bottom: 5px;
-}
+  }
 
-
-.pass label {
+  .pass label {
     display: block;
     color: linen;
     margin-bottom: 5px;
-}
+  }
 
-.remember {
+  .remember {
     color: linen;
-}
+  }
 
-.boton {
+  .boton {
     border-radius: 5px;
     line-height: 1.5;
     cursor: pointer;
-}
+  }
 
-.boton:hover {
+  .boton:hover {
     background-color: #e4e3e3;
-}
+  }
 
-.forgot-pass a{
+  .forgot-pass a {
     color: linen;
     font-size: 14px;
     font-weight: 400;
-}
-.register {
+  }
+  .register {
     border-radius: 5px;
     background-color: coral;
     padding: 5px;
@@ -256,195 +252,188 @@ input {
     font-weight: 400;
     margin-top: 10px;
     margin-bottom: 10px;
-} 
-.register:hover {
+  }
+  .register:hover {
     background-color: rgb(245, 118, 71);
     box-shadow: 1px 1px 2px #888888;
-}
+  }
 
-.register a {
+  .register a {
     color: linen;
     text-decoration: none;
-}
+  }
 
-/* footer*/
+  /* footer*/
 
-.footer{
-    background-color:#EA526F;
+  .footer {
+    background-color: #ea526f;
     padding-top: 10px;
-}
-.footer h3 {
+  }
+  .footer h3 {
     font-size: 15px;
-    color:white;
+    color: white;
     padding-left: 10px;
-}
-.footer-botton{
-    border-top:  solid 0.5px whitesmoke;
-    display: block; /* si no le pongo este display block no me toma el border-top*/
+  }
+  .footer-botton {
+    border-top: solid 0.5px whitesmoke;
+    display: block;
     margin-top: 15px;
-}
-.privacity{
+  }
+  .privacity {
     color: white;
     font-size: 15px;
 
     padding-left: 10px;
-}
-.footer-login{
+  }
+  .footer-login {
     text-decoration: none;
-}
-.all-icons{
-    margin-top: 15px ;
-}
-.icons{
+  }
+  .all-icons {
+    margin-top: 15px;
+  }
+  .icons {
     font-size: 25px;
     margin-bottom: 20px;
-}
-.bloque{
-    display: block;/* como el span es un elemento de linea lo paso a bloque para que me quede uno abajo del otro*/
-}
-.search-bar-bar{
+  }
+  .bloque {
+    display: block;
+  }
+  .search-bar-bar {
     display: none;
+  }
 }
 
+@media (min-width: 768px) {
+  .main-header-top {
+    display: flex;
+    justify-content: center;
+  }
+  .main-header-top h2 {
+    font-size: 15px;
+  }
+  .box-3 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .inicio {
+    text-decoration: none;
+    color: white;
+    display: block;
+    margin-left: 20px;
+  }
+  .apolo-logo {
+    display: flex;
+    justify-content: center;
+  }
+  .nav {
+    display: none;
+  }
+  .lupa {
+    font-size: 20px;
+  }
+  .search-bar-bar {
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .barra {
+    display: flex;
+  }
+  .control {
+    text-align: center;
+  }
+  .main-buy {
+    display: flex;
+    margin-left: 5px;
+  }
+  .buy {
+    display: block;
+    margin-right: 10px;
+    color: white;
+  }
+  .hamburger-button {
+    display: none;
+  }
 
+  .main-navbar {
+    display: block;
+    background-color: #fceade;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .main-navbar a {
+    text-decoration: none;
+  }
+  .main-navbar ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  .main-navbar li {
+    margin: 0 10px;
+  }
+  .main-navbar ul li a {
+    font-size: 14px;
+  }
 
-    
+  /* footer*/
+
+  .footer {
+    background-color: #ea526f;
+    padding-top: 20px;
+  }
+  .piedepagina {
+    display: flex;
+  }
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-botton {
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+
+  .footer-botton h3 {
+    color: white;
+    margin: 0;
+    font-size: 15px;
+  }
+  .footer-top h3 {
+    margin: 0 10px;
+    font-size: 15px;
+    color: white;
+  }
+  .privacity {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+  .privacity span {
+    margin: 0 10px;
+  }
+  .bloque {
+    display: inline;
+  }
+  .all-icons {
+    margin: 5px 20px;
+    display: flex;
+    justify-content: end;
+  }
+  .icons {
+    margin: 0 10px;
+  }
 }
 
-@media(min-width:768px) {
-    .main-header-top{
-        display: flex;
-        justify-content: center ;
-    }
-    .main-header-top h2{
-        font-size: 15px;
-    } 
-    .box-3{
-        display: flex;
-        justify-content: space-between;
-    }
-    .inicio{
-        text-decoration: none;/* le saco el subrrayado al enlace*/
-        color:white;
-        display: block; /* con este display hago que aparezca el inicio*/
-        margin-left: 20px;
-    }
-    .apolo-logo{
-        display: flex;
-        justify-content: center;
-    }
-    .nav{
-        display: none;
-    }
-    .lupa{
-        font-size: 20px;
-    }
-    .search-bar-bar{
-        display: block;
-        border-radius: 5px;
-        text-align: center;
-    }
-    .barra{
-        display: flex;
-    }
-    .control{
-        text-align: center;
-    }
-    .main-buy{
-      display: flex;  
-      margin-left: 5px;
-    }
-    .buy{
-        display: block;
-        margin-right: 10px;  
-        color: white; 
-    }
-    .hamburger-button{
-        display: none;
-    }  
-   
-    .main-navbar{
-        display: block; /* me trar la barra de navegacion que la habia ocultado mas arriba*/
-        background-color: #FCEADE;
-        display: flex;
-        justify-content: space-evenly;/* aca me separa las listas pero me queda una bien a la izquierda y la otra a la derecha pero de arriba*/
-    }
-    .main-navbar a{
-        text-decoration: none; /* le saco el subrrayado a los enlaces*/
-    }
-    .main-navbar ul {
-        display: flex; /* aca me pone las lista una al lado de la otra*/  
-        justify-content: space-around; 
-    }
-    .main-navbar li {
-        margin: 0 10px;
-    }
-    .main-navbar ul li a { /* agrando el tamano de la letra de la barra de navegacion*/
-        font-size: 14px;
-    } 
-
-    /* footer*/
-
-    .footer{
-        background-color:#EA526F;
-        padding-top: 20px;
-    }
-    .piedepagina{
-        display: flex;
-    }
-    .footer-top{
-        display: flex;
-        flex-direction: column;
-        
-    }
-    .footer-botton{
-        display: flex;
-        flex-direction: column;
-        border: none;
-    }
-    
-    .footer-botton h3{
-        color: white;
-        margin:0;
-        font-size: 15px;
-        
-    }
-    .footer-top h3{
-        margin: 0 10px;
-        font-size: 15px;
-        color: white;
-    }
-    .privacity {
-        display: flex;
-        justify-content: space-between;
-        margin-left: 10px;
-    }
-    .privacity span{
-        margin: 0 10px; /* separo los p*/
-    }
-    .bloque{
-        display: inline;/* me lo convierte de bloque a linea*/
-    }
-    .all-icons{
-        margin: 5px 20px;
-        display: flex;
-        justify-content: end; /* aca llevo los iconos como faceebook,twiter al final a la derecha*/
-}
-   .icons{
-    margin:0 10px
-    }
-}
-
-@media(min-width:1024px) {
-    .lupa{
-        display: block;  
-        font-size: 20px;
-    }
-    .barra{
-        font-size: 20px;
-    }
-    .main-header-top h2{
-        font-size: 15px;
-    }
-   
+@media (min-width: 1024px) {
+  .lupa {
+    display: block;
+    font-size: 20px;
+  }
+  .barra {
+    font-size: 20px;
+  }
+  .main-header-top h2 {
+    font-size: 15px;
+  }
 }

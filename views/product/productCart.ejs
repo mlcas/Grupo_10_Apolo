@@ -2,9 +2,9 @@
 <html lang="en">
 
   
-  <%- include("../partial/head.ejs",{cssfile:"style-productCart"}) %> <!--cssfile es una variable que va a guardar la hoja de estilo-->
+  <%- include("../partial/head.ejs",{cssfile:"style-productCart"}) %> 
 <body>
-  <%- include("../partial/header") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+  <%- include("../partial/header") %> 
 
   <main>
     <h4 class="title">Carrito de Compras</h4>
@@ -25,8 +25,8 @@
             <i class="fas fa-trash-alt"></i>
           </div>
         </div>
-          <select name="categoria" class="control"> <!--el name es solo para el Backend-->
-           <option value="Un articulo">1</option> <!--el value es para q el backend identifique de que se trata-->
+          <select name="categoria" class="control"> 
+           <option value="Un articulo">1</option> 
            <option value="Dos articulos">2</option>
            <option value="Tres articulos">3</option>
            <option value="Cuatro articulos">4</option>
@@ -50,8 +50,8 @@
             <i class="fas fa-trash-alt"></i>
           </div>
         </div>
-          <select name="categoria" class="control"> <!--el name es solo para el Backend-->
-           <option value="Un articulo">1</option> <!--el value es para q el backend identifique de que se trata-->
+          <select name="categoria" class="control">
+           <option value="Un articulo">1</option> 
            <option value="Dos articulos">2</option>
            <option value="Tres articulos">3</option>
            <option value="Cuatro articulos">4</option>
@@ -85,7 +85,7 @@
     </section>
   </main>
 
-  <%- include("../partial/footer.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+  <%- include("../partial/footer.ejs") %> 
 </body>
 
 </html>

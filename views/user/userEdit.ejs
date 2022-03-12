@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Apolo</title>
-        <script src="https://kit.fontawesome.com/98eaad93ae.js" crossorigin="anonymous"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/normalize.css">
-        <%- include("../partial/head.ejs",{cssfile:"register"}) %> <!--cssfile es una variable que va a guardar la hoja de estilo-->
-    </head>
-<body>
-  <%- include("../partial/header.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apolo</title>
+    <script
+      src="https://kit.fontawesome.com/98eaad93ae.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <%- include("../partial/head.ejs",{cssfile:"register"}) %>
+  </head>
+  <body>
+    <%- include("../partial/header.ejs") %>
     <main>
-        <section class="box-form-register">
-            <form action="/user/userEdit/<%= user.id %>?_method=PUT" method="POST" class="form-register" enctype="multipart/form-data">
-                <div class="form-name">
-                   
-                    <input type="text" name="name"  value="<%= user.name%>">
-                </div>
-                <div class="form-surname">
-                    <input type="text" name="lastname"  value="<%= user.lastname%>">
-                </div>
-                <div class="form-birth">
-                    <label for="">Fecha de Nacimiento</label>
-                    <input type="date" name="birthdate" value="<%= user.birthdate%>">
-                </div>
-                <div class="control-formulario">
-                    <label>Imagen del usuario:</label>
-                    <input type="file" name="image" placeholder="IMAGEN" class="control">
-                    </div>
-                <button class="register-button" type="submit">Editar Perfil</button>
-            </form>
-        </section>
-      
+      <section class="box-form-register">
+        <form
+          action="/user/userEdit/<%= user.id %>?_method=PUT"
+          method="POST"
+          class="form-register"
+          enctype="multipart/form-data"
+        >
+          <div class="form-name">
+            <input type="text" name="name" value="<%= user.name%>" />
+          </div>
+          <div class="form-surname">
+            <input type="text" name="lastname" value="<%= user.lastname%>" />
+          </div>
+          <div class="form-birth">
+            <label for="">Fecha de Nacimiento</label>
+            <input type="date" name="birthdate" value="<%= user.birthdate%>" />
+          </div>
+          <div class="control-formulario">
+            <label>Imagen del usuario:</label>
+            <input
+              type="file"
+              name="image"
+              placeholder="IMAGEN"
+              class="control"
+            />
+          </div>
+          <button class="register-button" type="submit">Editar Perfil</button>
+        </form>
+      </section>
     </main>
-    <%- include("../partial/footer.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
-</body>
+    <%- include("../partial/footer.ejs") %>
+  </body>
 </html>

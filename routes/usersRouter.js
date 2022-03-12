@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 const multer = require("multer");
 
@@ -6,36 +6,38 @@ let usersController = require("../controller/usersController");
 const validations = require("../middlewares/validatRegisterMiddlewares");
 const validationsLogin = require("../middlewares/validatLoginMiddlewares");
 
-const guestMiddlewares = require("../middlewares/gustMiddlewares"); // es un middlewares a nivel de ruta
-const loggedMiddleware = require("../middlewares/loggedMiddleware"); // es un middlewares a nivel de ruta
-
+const guestMiddlewares = require("../middlewares/gustMiddlewares");
+const loggedMiddleware = require("../middlewares/loggedMiddleware");
 
 const storage = multer.diskStorage({
-    destination: function(req ,file,cb) {
-     cb(null, "./public/img")
-    },
-    filename:  function(req ,file,cb) { // aca le damos un nuevo al archivo y lo guardamos en la carpeta de la fila 12
-        cb(null, Date.now() + file.originalname) // aca le pasamos a el controlador la info del archivo
-       }
-})
+  destination: function (req, file, cb) {
+    cb(null, "./public/img");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+  },
+});
 
-const upload = multer({storage});
-// Devolver el formulario de login 
-router.get("/login",guestMiddlewares,usersController.login);// si ya tenemos al alguien en session se activa el middlewares, caso contrario sigue al controlador
-router.post("/login", validationsLogin,usersController.userProcess);
+const upload = multer({ storage });
+// Devolver el formulario de login
+router.get("/login", guestMiddlewares, usersController.login);
+router.post("/login", validationsLogin, usersController.userProcess);
 
 // Devolver el formulario de register
-router.get("/register",guestMiddlewares ,usersController.register);
-router.post("/register",upload.single("image"),validations, usersController.saveUsers);
+router.get("/register", guestMiddlewares, usersController.register);
+router.post(
+  "/register",
+  upload.single("image"),
+  validations,
+  usersController.saveUsers
+);
 // Devolver el formulario de edicion
-router.get("/userEdit/:id",usersController.edit);
-router.put("/userEdit/:id",upload.single("image"),usersController.userUpdate);
+router.get("/userEdit/:id", usersController.edit);
+router.put("/userEdit/:id", upload.single("image"), usersController.userUpdate);
 
 // Devuelve la vista del profile
- router.get("/profile",loggedMiddleware,usersController.profile)
+router.get("/profile", loggedMiddleware, usersController.profile);
 //Logout
- router.get("/logout",usersController.logout);
+router.get("/logout", usersController.logout);
 
-
-
-module.exports = router
+module.exports = router;

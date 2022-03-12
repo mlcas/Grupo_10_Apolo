@@ -9,10 +9,9 @@ let usersController = {
   },
   userProcess: (req, res) => {
     const resultValidations = validationResult(req);
-    
-    console.log(resultValidations.errors)
+
+    console.log(resultValidations.errors);
     if (resultValidations.errors.length > 0) {
-      // si es mayor a cero es porque hay errores
       return res.render("user/login", {
         errors: resultValidations.mapped(),
         oldData: req.body,
@@ -24,29 +23,32 @@ let usersController = {
       },
     }).then((validetEmail) => {
       if (validetEmail) {
-        let isOkThePassword = bcryptjs.compareSync(req.body.password,validetEmail.pass); // estamos comparando la contraseña que se envia desde el form con la que esta en la db
+        let isOkThePassword = bcryptjs.compareSync(
+          req.body.password,
+          validetEmail.pass
+        );
         console.log(isOkThePassword);
         console.log(req.body.password);
         if (isOkThePassword) {
-          req.session.userLogged = validetEmail; // aca guardas al usuario en session
+          req.session.userLogged = validetEmail;
           if (req.body.rememberMe) {
             res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
           }
           return res.redirect("/user/profile");
         }
-      } // caso contrario aplicas esta validacion
-      return res.render("user/login",{
-        errors:{ 
-          email:{// aca tomo el mismo formato de los errores de express validator
-              msg: "Este email no esta registrado"
-          }
-         },
-         errors:{ 
-          password:{// aca tomo el mismo formato de los errores de express validator
-              msg: "Esta contraseña es incorrecta"
-          }
-         },
-         oldData: req.body 
+      }
+      return res.render("user/login", {
+        errors: {
+          email: {
+            msg: "Este email no esta registrado",
+          },
+        },
+        errors: {
+          password: {
+            msg: "Esta contraseña es incorrecta",
+          },
+        },
+        oldData: req.body,
       });
     });
   },
@@ -58,7 +60,6 @@ let usersController = {
     const resultValidation = validationResult(req);
     console.log(resultValidation.mapped());
     if (resultValidation.errors.length > 0) {
-      // si es mayor a cero es porque hay errores
       return res.render("user/register", {
         errors: resultValidation.mapped(),
         oldData: req.body,
@@ -68,34 +69,34 @@ let usersController = {
       where: {
         email: req.body.email,
       },
-    }).then((validationEmail) => {
-      if (validationEmail) {
-        // Si los email coincide no te deja avanzar
-        return res.render("user/register",{
-          errors:{ 
-            email:{// aca tomo el mismo formato de los errores de express validator
-                msg: "Este email ya esta registrado"
-            }
-           },
-           oldData: req.body 
-        });
-      }
-      db.User.create({
-        name: req.body.name, // aca vamos a guardar a la info que viene de el form de cracion del usuario. Es un objeto literal con la propiedad y su valor
-        lastname: req.body.lastname,
-        birthdate: req.body.birthdate,
-        email: req.body.email,
-        pass: bcryptjs.hashSync(req.body.password, 10), // aca mandamos la contraseña hasheada
-        role_id: 2,
-        avatar: req.file.filename,
-        deleted: 0,
-      });
-      return res.redirect("/user/login"); // si la persona se registro existosamente te lo manda al login
     })
-    .catch((error) => {
-      console.log(error);
-      res.send("error");
-    });
+      .then((validationEmail) => {
+        if (validationEmail) {
+          return res.render("user/register", {
+            errors: {
+              email: {
+                msg: "Este email ya esta registrado",
+              },
+            },
+            oldData: req.body,
+          });
+        }
+        db.User.create({
+          name: req.body.name,
+          lastname: req.body.lastname,
+          birthdate: req.body.birthdate,
+          email: req.body.email,
+          pass: bcryptjs.hashSync(req.body.password, 10),
+          role_id: 2,
+          avatar: req.file.filename,
+          deleted: 0,
+        });
+        return res.redirect("/user/login");
+      })
+      .catch((error) => {
+        console.log(error);
+        res.send("error");
+      });
   },
   // Traemos el formulario de edicion
   edit: (req, res) => {
@@ -111,14 +112,13 @@ let usersController = {
   userUpdate: async (req, res) => {
     try {
       let editUser = await db.User.findOne({
-        // aca no te deja avanzar hasta que la variable reciba el dato de la db
         where: {
           id: req.params.id,
         },
       });
       await db.User.update(
         {
-          ...req.body, // spread operator
+          ...req.body,
           avatar: req.file ? req.file.filename : editUser.avatar,
           deleted: 0,
         },
@@ -138,8 +138,8 @@ let usersController = {
     });
   },
   logout: function (req, res) {
-    res.clearCookie("userEmail"); // aca se destruye la cookie y te permite desloguearte
-    req.session.destroy(); // Esto lo que hace es borrar todo lo que esta en sesion, tenes que volver a loguearte
+    res.clearCookie("userEmail");
+    req.session.destroy();
     return res.redirect("/");
   },
 };

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
  
-  <%- include("../partial/head.ejs",{cssfile:"style-createProduct"}) %> <!--cssfile es una variable que va a guardar la hoja de estilo-->
+  <%- include("../partial/head.ejs",{cssfile:"style-createProduct"}) %> 
 <body>
-    <%- include("../partial/header.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+    <%- include("../partial/header.ejs") %> 
 
     <form action="/product/productList" method="POST" class="create-form" enctype="multipart/form-data" id="id-form" >
   
@@ -16,8 +16,8 @@
              <div class="text-danger">
                  <%= errors.name.msg %> 
              </div>
-             <% } %>  <!--el atibuto name es de para una mejor identificacion del Backend-->
-             <div id="div-name"> <!--lo utilizamos para vaciar  el contenido de html desde javaScript-->
+             <% } %> 
+             <div id="div-name"> 
 
              </div>
         </div>
@@ -30,29 +30,28 @@
           <label>Descuento:</label>
           <input type="number" name="discount" class="control">
          </div>
-           <div class="control-formulario"> <!--este campo contiene el menu desplegable-->
+           <div class="control-formulario"> 
              <label>Genero:</label> 
-              <select name="gender" class="control"> <!--el name es solo para el Backend-->
-               <option value="Hombre">Hombre</option> <!--el value es para q el backend identifique de que se trata-->
+              <select name="gender" class="control"> 
+               <option value="Hombre">Hombre</option> 
                <option value="Mujer">Mujer</option>
               </select>
            </div>
-           <div class="control-formulario"> <!--este campo contiene el menu desplegable-->
+           <div class="control-formulario">
             <label>Categoria:</label> 
             <p>
               <select name="category_id">
                <option value="" disabled selected>Elegir Categoria</option>
                <% categories.forEach(category => { %>
-               <option value="<%= category.id %>"><%= category.name %> </option> <!--El id de category es lo que se guarda cuando se envia el form de crear producto y es el dato que 
-              necesitas que se guarde dado que esta relacionado con la tabla categorias-->
+               <option value="<%= category.id %>"><%= category.name %> </option> 
                <% }) %>
               </select>
           </p>
           </div>
-          <div class="control-formulario"> <!--este campo contiene el menu desplegable-->
+          <div class="control-formulario"> 
             <label>Marca:</label> 
-             <select name="brand" class="control"> <!--el name es solo para el Backend-->
-              <option value="adidas">Adidas</option> <!--el value es para q el backend identifique de que se trata-->
+             <select name="brand" class="control">
+              <option value="adidas">Adidas</option>
               <option value="nike">Nike</option>
               <option value="puma">Puma</option> 
               <option value="topper">Topper</option> 
@@ -62,22 +61,20 @@
               <option value="kappa">Kappa</option>
              </select>
           </div>
-           <div class="control-formulario"> <!--este campo contiene el menu desplegable-->
+           <div class="control-formulario">
             <label>Talle:</label> 
             <p>
               <select name="size_id">
                <option value="" disabled selected>Elegir Talle</option>
                <% sizes.forEach(size => { %>
-               <option value="<%= size.id %>"><%= size.size %> </option> <!--El id de size es lo que se guarda cuando se envia el form de crear producto y es el dato que 
-              necesitas que se guarde dado que esta relacionado con la tabla Size-->
-             
+               <option value="<%= size.id %>"><%= size.size %> </option>
                <% }) %>
               </select>
           </p>
              
           </div>
           <div class="control-formulario">
-            <label>Descripcion:</label> <!--aca van los comentarios-->
+            <label>Descripcion:</label> 
             <textarea name="description"  class="control <%= locals.errors && errors.description ? "is-invalid": null %>" id
               = "description"><%= locals.oldData ? oldData.description :null %></textarea>
             <% if (locals.errors && errors.description){ %> 
@@ -100,7 +97,7 @@
                   <%= errors.image.msg %> 
               </div>
               <% } %> 
-              <div id="div-image"> <!--lo utilizamos para vaciar  el contenido de html desde javaScript-->
+              <div id="div-image"> 
 
               </div>
           </div>
@@ -116,13 +113,10 @@
               <input type="radio" name="newseason" class = "radio-button__radio">
             </div>
           </div>
-          <button type="submit" class="botton-form">Crear Producto</button> <!--aca van los botones-->
+          <button type="submit" class="botton-form">Crear Producto</button> 
       </form>
 
-
-
-    
-    <%- include("../partial/footer.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+    <%- include("../partial/footer.ejs") %> 
     <script src="/js/validatorCreate.js"></script>
 </body>
 </html>

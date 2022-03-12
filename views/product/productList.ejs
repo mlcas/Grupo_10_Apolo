@@ -1,36 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include("../partial/head.ejs",{cssfile:"style-productList"}) %>
 
-  <%- include("../partial/head.ejs",{cssfile:"style-productList"}) %> <!--cssfile es una variable que va a guardar la hoja de estilo-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apolo</title>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/98eaad93ae.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/lightslider.css" />
+    <link rel="stylesheet" href="/css/style-productList.css" />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/lightslider.js"></script>
+  </head>
+  <body>
+    <%- include("../partial/header.ejs") %>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Apolo</title>
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/98eaad93ae.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/css/lightslider.css"> <!--es para hacer el slider-->
-        <link rel="stylesheet" href="/css/style-productList.css">
-        <script type="text/javascript" src="/js/jquery.min.js"></script> <!--es para hacer el slider-->
-        <script type="text/javascript" src="/js/lightslider.js"></script> <!--es para hacer el slider-->
-      </head>
-<body>
-    <%- include("../partial/header.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
-
-   <main>
-    
-     <section class="seccion-lista-productos">
-      <h1 class="titulo-productos">Todos los productos</h1>
-       <div class="listaProductos"> 
-         <% products.forEach(producto => {%>
-         <article class="producto">
-           <a href="/product/productDetail/<%= producto.id %>" class="product-content">
+    <main>
+      <section class="seccion-lista-productos">
+        <h1 class="titulo-productos">Todos los productos</h1>
+        <div class="listaProductos">
+          <% products.forEach(producto => {%>
+          <article class="producto">
+            <a
+              href="/product/productDetail/<%= producto.id %>"
+              class="product-content"
+            >
               <div class="producto-img-box">
-                <img src="/img/<%=producto.image %>" alt="" class="imgProduct">
+                <img
+                  src="/img/<%=producto.image %>"
+                  alt=""
+                  class="imgProduct"
+                />
               </div>
               <div class="detalle">
                 <p>$<%=producto.price %></p>
@@ -38,13 +49,12 @@
                 <h3 class="descripcionArticulo"><%=producto.description %></h3>
               </div>
             </a>
-         </article>
-         <% }) %>
+          </article>
+          <% }) %>
         </div>
       </section>
     </main>
 
-
-    <%- include("../partial/footer.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
-</body>
+    <%- include("../partial/footer.ejs") %>
+  </body>
 </html>

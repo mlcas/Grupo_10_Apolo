@@ -15,7 +15,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   </head>
 <body>
-  <%- include("../partial/header.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+  <%- include("../partial/header.ejs") %>
   <main>
     <section>
         <div class="section-main">
@@ -52,8 +52,7 @@
                     <select name="size_id">
                      <option value="" disabled selected>Elegir Talle</option>
                      <% sizes.forEach(size => { %>
-                     <option value="<%= size.id %>"><%= size.size %> </option> <!--El id de genres es lo que se guarda cuando se envia el form de crear pelicula y es el dato que 
-                    necesitas que se guarde dado que esta relacionado con la tabla generos-->
+                     <option value="<%= size.id %>"><%= size.size %> </option> 
                      <% }) %>
                     </select>
                 </p>
@@ -77,7 +76,7 @@
         </div>
     </section>
   </main>
-  <%- include("../partial/footer.ejs") %> <!--Aca estoy reutilizando codigo gracias a ejs-->
+  <%- include("../partial/footer.ejs") %> 
 </body>
 
 </html>
